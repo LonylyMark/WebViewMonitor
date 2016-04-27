@@ -1,0 +1,6 @@
+framework module WebViewMonitor {
+  umbrella header "WebViewMonitor.h"
+
+  export *
+  module * { export * }
+}
