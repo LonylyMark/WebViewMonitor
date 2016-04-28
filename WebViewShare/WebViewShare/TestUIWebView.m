@@ -7,7 +7,8 @@
 //
 
 #import "TestUIWebView.h"
-
+#import "WebViewTracker.h"
+#import <WebViewMonitor/WebViewMonitor.h>
 @interface TestUIWebView ()<UIWebViewDelegate>
 
 @end
@@ -27,7 +28,7 @@
 }
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType;
 {
-//    NSLog(@"url=%@",request.URL);
+    [WebViewTracker webView:webView withUrl:request.URL];
     return YES;
 }
 - (void)webViewDidStartLoad:(UIWebView *)webView;
@@ -36,7 +37,15 @@
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView;
 {
+    //使用NSURLProtocol注入获取ajax代码，因为ajax必须头部注入，不然会丢失数据，而行为和性能数据在头部注入的话也会丢失数据，所以结合着用
     
+    NSString *jsStr = WebViewOnclickAndResource_js();
+    jsStr = [jsStr substringWithRange:NSMakeRange(2, jsStr.length-3)];
+    [webView stringByEvaluatingJavaScriptFromString:jsStr];
+    [webView stringByEvaluatingJavaScriptFromString:@"CloudwiseAddEvent()"];
+    [webView stringByEvaluatingJavaScriptFromString:@"cloudwiseStartPageMonitor()"];
+   
+   
 }
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(nullable NSError *)error;
 {

@@ -69,15 +69,13 @@ void WebViewSwizzle(Class c, SEL orig, SEL newS) {
                               JSONObjectWithData: [jsonString dataUsingEncoding:NSUTF8StringEncoding]
                               options: NSJSONReadingAllowFragments
                               error: &error];
-        
+        //时间响应数据
         if ([eventType isEqualToString:@"timing"])
         {
-            
             [[self shareInstance] triggerEventFromWebView:webView withData:JSON];
             
-        }else if ([eventType isEqualToString:@"ajax"])
+        }else if ([eventType isEqualToString:@"ajax"])//ajax请求数据
         {
-            
             [[self shareInstance] triggerEventFromWebView:webView withData:JSON];
         }
         
@@ -93,9 +91,10 @@ void WebViewSwizzle(Class c, SEL orig, SEL newS) {
         NSString *jsonString = [query stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         
         NSError *error;
-        NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData: [jsonString dataUsingEncoding:NSUTF8StringEncoding]
-                                                             options: NSJSONReadingMutableContainers
-                                                               error: &error];
+        NSDictionary *JSON = [NSJSONSerialization JSONObjectWithData:
+                              [jsonString dataUsingEncoding:NSUTF8StringEncoding]
+                                        options: NSJSONReadingMutableContainers
+                                          error: &error];
         
         if ([eventType isEqualToString:@"event"]) {
             [[self shareInstance] triggerEventFromWebView:webView withData:JSON];

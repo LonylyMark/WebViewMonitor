@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "TableViewController.h"
 #import "WebViewTracker.h"
-#import "TableViewDelegateMonitor.h"
+
 #import "MonitorURLProtocol.h"
 @interface AppDelegate ()
 
@@ -19,8 +19,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    //静态库代理方法的hook入口
-    [TableViewDelegateMonitor startMonitor];
+
     [NSURLProtocol registerClass:[MonitorURLProtocol class]];
 
     _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];

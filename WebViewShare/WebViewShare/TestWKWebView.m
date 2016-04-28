@@ -8,6 +8,8 @@
 
 #import "TestWKWebView.h"
 #import <WebKit/WebKit.h>
+#import <WebViewMonitor/WebViewMonitor.h>
+#import "WKWebViewTracker.h"
 @interface TestWKWebView ()<WKNavigationDelegate>
 @property (nonatomic,strong)WKWebView   *wkWebView;
 @end
@@ -29,7 +31,7 @@
 {
     NSLog(@"decidePolicyForNavigationAction");
     
-    
+    [WKWebViewTracker wkWebView:webView withUrl:navigationAction.request.URL];
     //    NSLog(@"url=%@",navigationAction.request.URL);
     decisionHandler(WKNavigationActionPolicyAllow);
     
@@ -40,6 +42,15 @@
 }
 
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
+    
+    NSString *jsStr = WKWebViewJavaScript_js();
+    jsStr = [jsStr substringWithRange:NSMakeRange(2, jsStr.length-3)];
+    [webView evaluateJavaScript:jsStr completionHandler:nil];
+    [webView evaluateJavaScript:@"CloudwiseAddEvent()" completionHandler:^(id object, NSError * _Nullable error) {
+        
+    }];
+    [webView evaluateJavaScript:@"cloudwiseStartPageMonitor()" completionHandler:nil];
+    [webView evaluateJavaScript:@"cloudwisePreMonitor()" completionHandler:nil];
     NSLog(@"didFinishNavigation");
 }
 

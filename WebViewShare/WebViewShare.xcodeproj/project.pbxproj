@@ -21,7 +21,6 @@
 		875B029B1CCDFCBC00A12299 /* TestWKWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 875B029A1CCDFCBC00A12299 /* TestWKWebView.m */; };
 		875B02A31CCE005F00A12299 /* WebViewTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 875B02A21CCE005F00A12299 /* WebViewTracker.m */; };
 		875B02A61CCE026D00A12299 /* WKWebViewTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 875B02A51CCE026D00A12299 /* WKWebViewTracker.m */; };
-		875B02A91CCE02CA00A12299 /* TableViewDelegateMonitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 875B02A81CCE02CA00A12299 /* TableViewDelegateMonitor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,8 +68,6 @@
 		875B02A21CCE005F00A12299 /* WebViewTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewTracker.m; sourceTree = "<group>"; };
 		875B02A41CCE026D00A12299 /* WKWebViewTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWebViewTracker.h; sourceTree = "<group>"; };
 		875B02A51CCE026D00A12299 /* WKWebViewTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKWebViewTracker.m; sourceTree = "<group>"; };
-		875B02A71CCE02CA00A12299 /* TableViewDelegateMonitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewDelegateMonitor.h; sourceTree = "<group>"; };
-		875B02A81CCE02CA00A12299 /* TableViewDelegateMonitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewDelegateMonitor.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,8 +171,6 @@
 				875B02A21CCE005F00A12299 /* WebViewTracker.m */,
 				875B02A41CCE026D00A12299 /* WKWebViewTracker.h */,
 				875B02A51CCE026D00A12299 /* WKWebViewTracker.m */,
-				875B02A71CCE02CA00A12299 /* TableViewDelegateMonitor.h */,
-				875B02A81CCE02CA00A12299 /* TableViewDelegateMonitor.m */,
 				8743B1921CCF1711001DC742 /* MonitorURLProtocol.h */,
 				8743B1931CCF1711001DC742 /* MonitorURLProtocol.m */,
 			);
@@ -315,7 +310,6 @@
 				875B02641CCDF1D500A12299 /* AppDelegate.m in Sources */,
 				875B02981CCDFCA200A12299 /* TestUIWebView.m in Sources */,
 				875B02611CCDF1D500A12299 /* main.m in Sources */,
-				875B02A91CCE02CA00A12299 /* TableViewDelegateMonitor.m in Sources */,
 				875B02A61CCE026D00A12299 /* WKWebViewTracker.m in Sources */,
 				875B02941CCDFA2A00A12299 /* TableViewController.m in Sources */,
 				875B02A31CCE005F00A12299 /* WebViewTracker.m in Sources */,
